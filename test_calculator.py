@@ -48,6 +48,23 @@ class TestCalculator(unittest.TestCase):
         self.assertEqual(calculator.power(4, 0.5), 2)
         self.assertEqual(calculator.power(-2, 2), 4)
 
+    def test_modulus(self):
+        """Test modulus operation."""
+        self.assertEqual(calculator.modulus(10, 3), 1)
+        self.assertEqual(calculator.modulus(15, 4), 3)
+        self.assertEqual(calculator.modulus(8, 2), 0)
+        self.assertEqual(calculator.modulus(7, 7), 0)
+        self.assertEqual(calculator.modulus(-10, 3), 2)  # Python's modulus behavior
+        self.assertEqual(calculator.modulus(10, -3), -2)  # Python's modulus behavior
+        self.assertAlmostEqual(calculator.modulus(5.5, 2), 1.5, places=10)
+
+    def test_modulus_by_zero(self):
+        """Test modulus by zero raises ValueError."""
+        with self.assertRaises(ValueError):
+            calculator.modulus(10, 0)
+        with self.assertRaises(ValueError):
+            calculator.modulus(-5, 0)
+
     def test_square_root(self):
         """Test square root operation."""
         self.assertEqual(calculator.square_root(4), 2)
@@ -90,7 +107,7 @@ class TestCalculator(unittest.TestCase):
     def test_get_available_operations(self):
         """Test getting available operations."""
         operations = calculator.get_available_operations()
-        expected = ["add", "subtract", "multiply", "divide", "power", "square_root", "factorial"]
+        expected = ["add", "subtract", "multiply", "divide", "power", "modulus", "square_root", "factorial"]
         self.assertEqual(operations, expected)
 
 
