@@ -51,7 +51,7 @@ class TestCalculator(unittest.TestCase):
     def test_get_available_operations(self):
         """Test getting available operations."""
         operations = calculator.get_available_operations()
-        expected = ["add", "subtract", "multiply", "divide", "power"]
+        expected = ["add", "subtract", "multiply", "divide", "power", "square_root", "factorial"]
         self.assertEqual(operations, expected)
 
 
