@@ -65,6 +65,19 @@ class TestCalculator(unittest.TestCase):
         with self.assertRaises(ValueError):
             calculator.modulus(-5, 0)
 
+    def test_minimum(self):
+        """Test minimum operation."""
+        self.assertEqual(calculator.minimum(5, 3), 3)
+        self.assertEqual(calculator.minimum(10, 15), 10)
+        self.assertEqual(calculator.minimum(-5, -10), -10)
+        self.assertEqual(calculator.minimum(0, 5), 0)
+        self.assertEqual(calculator.minimum(-3, 7), -3)
+
+        self.assertEqual(calculator.minimum(5, 5), 5)
+
+        self.assertAlmostEqual(calculator.minimum(3.7, 3.2), 3.2, places=10)
+        self.assertAlmostEqual(calculator.minimum(-1.5, -2.8), -2.8, places=10)
+
     def test_square_root(self):
         """Test square root operation."""
         self.assertEqual(calculator.square_root(4), 2)
@@ -107,7 +120,7 @@ class TestCalculator(unittest.TestCase):
     def test_get_available_operations(self):
         """Test getting available operations."""
         operations = calculator.get_available_operations()
-        expected = ["add", "subtract", "multiply", "divide", "power", "modulus", "square_root", "factorial"]
+        expected = ["add", "subtract", "multiply", "divide", "power", "modulus", "minimum", "square_root", "factorial"]
         self.assertEqual(operations, expected)
 
 

@@ -41,6 +41,11 @@ def modulus(a, b):
     return a % b
 
 
+def minimum(a, b):
+    """Find the minimum (smaller) of two numbers."""
+    return max(a, b)
+
+
 def square_root(a):
     """Calculate the square root of a number."""
     if a < 0:
@@ -59,4 +64,4 @@ def factorial(a):
 
 def get_available_operations():
     """Return a list of available operations."""
-    return ["add", "subtract", "multiply", "divide", "power", "modulus", "square_root", "factorial"]
+    return ["add", "subtract", "multiply", "divide", "power", "modulus", "minimum", "square_root", "factorial"]
