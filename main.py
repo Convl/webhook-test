@@ -46,7 +46,7 @@ def main():
     while True:
         display_menu()
         try:
-            choice = int(input("\nEnter your choice (0-7): "))
+            choice = int(input("\nEnter your choice (0-8): "))
         except ValueError:
             print("Invalid choice. Please enter a number.")
             continue
@@ -82,7 +82,15 @@ def main():
             if a is not None and b is not None:
                 result = calculator.power(a, b)
                 print(f"Result: {a} ^ {b} = {result}")
-        elif choice == 6:  # Square Root
+        elif choice == 6:  # Modulus
+            a, b = get_numbers()
+            if a is not None and b is not None:
+                try:
+                    result = calculator.modulus(a, b)
+                    print(f"Result: {a} % {b} = {result}")
+                except ValueError as e:
+                    print(f"Error: {e}")
+        elif choice == 7:  # Square Root
             a = get_single_number()
             if a is not None:
                 try:
@@ -90,7 +98,7 @@ def main():
                     print(f"Result: √{a} = {result}")
                 except ValueError as e:
                     print(f"Error: {e}")
-        elif choice == 7:  # Factorial
+        elif choice == 8:  # Factorial
             a = get_single_number()
             if a is not None:
                 try:
