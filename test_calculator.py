@@ -48,6 +48,45 @@ class TestCalculator(unittest.TestCase):
         self.assertEqual(calculator.power(4, 0.5), 2)
         self.assertEqual(calculator.power(-2, 2), 4)
 
+    def test_square_root(self):
+        """Test square root operation."""
+        self.assertEqual(calculator.square_root(4), 2)
+        self.assertEqual(calculator.square_root(9), 3)
+        self.assertEqual(calculator.square_root(0), 0)
+        self.assertAlmostEqual(calculator.square_root(2), 1.4142135623730951, places=10)
+        self.assertAlmostEqual(calculator.square_root(0.25), 0.5, places=10)
+
+    def test_square_root_negative(self):
+        """Test square root of negative number raises ValueError."""
+        with self.assertRaises(ValueError):
+            calculator.square_root(-1)
+        with self.assertRaises(ValueError):
+            calculator.square_root(-4)
+
+    def test_factorial(self):
+        """Test factorial operation."""
+        self.assertEqual(calculator.factorial(0), 1)
+        self.assertEqual(calculator.factorial(1), 1)
+        self.assertEqual(calculator.factorial(2), 2)
+        self.assertEqual(calculator.factorial(3), 6)
+        self.assertEqual(calculator.factorial(4), 24)
+        self.assertEqual(calculator.factorial(5), 120)
+        self.assertEqual(calculator.factorial(10), 3628800)
+
+    def test_factorial_negative(self):
+        """Test factorial of negative number raises ValueError."""
+        with self.assertRaises(ValueError):
+            calculator.factorial(-1)
+        with self.assertRaises(ValueError):
+            calculator.factorial(-5)
+
+    def test_factorial_non_integer(self):
+        """Test factorial of non-integer raises ValueError."""
+        with self.assertRaises(ValueError):
+            calculator.factorial(3.5)
+        with self.assertRaises(ValueError):
+            calculator.factorial(2.1)
+
     def test_get_available_operations(self):
         """Test getting available operations."""
         operations = calculator.get_available_operations()
