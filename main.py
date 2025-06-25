@@ -14,7 +14,7 @@ def display_menu():
     print("Available operations:")
     operations = calculator.get_available_operations()
     for i, op in enumerate(operations, 1):
-        print(f"{i}. {op.capitalize()}")
+        print(f"{i}. {op.replace('_', ' ').title()}")
     print("0. Exit")
 
 
@@ -29,6 +29,16 @@ def get_numbers():
         return None, None
 
 
+def get_single_number():
+    """Get a single number from user input."""
+    try:
+        a = float(input("Enter number: "))
+        return a
+    except ValueError:
+        print("Invalid input. Please enter a valid number.")
+        return None
+
+
 def main():
     """Main calculator loop."""
     print("Welcome to the Simple Calculator!")
@@ -36,7 +46,7 @@ def main():
     while True:
         display_menu()
         try:
-            choice = int(input("\nEnter your choice (0-5): "))
+            choice = int(input("\nEnter your choice (0-7): "))
         except ValueError:
             print("Invalid choice. Please enter a number.")
             continue
@@ -72,6 +82,22 @@ def main():
             if a is not None and b is not None:
                 result = calculator.power(a, b)
                 print(f"Result: {a} ^ {b} = {result}")
+        elif choice == 6:  # Square Root
+            a = get_single_number()
+            if a is not None:
+                try:
+                    result = calculator.square_root(a)
+                    print(f"Result: √{a} = {result}")
+                except ValueError as e:
+                    print(f"Error: {e}")
+        elif choice == 7:  # Factorial
+            a = get_single_number()
+            if a is not None:
+                try:
+                    result = calculator.factorial(a)
+                    print(f"Result: {a}! = {result}")
+                except ValueError as e:
+                    print(f"Error: {e}")
         else:
             print("Invalid choice. Please try again.")
 
