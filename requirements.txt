@@ -1,0 +1,4 @@
+# Calculator App Requirements
+# No external dependencies required for basic functionality
+# For development and testing:
+pytest>=7.0.0 
