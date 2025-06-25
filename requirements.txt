@@ -1,4 +1,12 @@
 # Calculator App Requirements
+# Core dependencies
 # No external dependencies required for basic functionality
-# For development and testing:
-pytest>=7.0.0 
+
+# Testing dependencies
+pytest>=7.0.0
+pytest-cov>=4.0.0
+
+# Development and linting dependencies
+flake8>=6.0.0
+pylint>=2.17.0
+black>=23.0.0 
