@@ -4,6 +4,8 @@ Simple Calculator Module
 This module provides basic arithmetic operations for a calculator application.
 """
 
+import math
+
 
 def add(a, b):
     """Add two numbers and return the result."""
@@ -32,6 +34,22 @@ def power(a, b):
     return a**b
 
 
+def square_root(a):
+    """Calculate the square root of a number."""
+    if a < 0:
+        raise ValueError("Cannot calculate square root of negative number")
+    return math.sqrt(a)
+
+
+def factorial(a):
+    """Calculate the factorial of a number."""
+    if a < 0:
+        raise ValueError("Cannot calculate factorial of negative number")
+    if not a.is_integer():
+        raise ValueError("Factorial is only defined for integers")
+    return math.factorial(int(a))
+
+
 def get_available_operations():
     """Return a list of available operations."""
-    return ["add", "subtract", "multiply", "divide", "power"]
+    return ["add", "subtract", "multiply", "divide", "power", "square_root", "factorial"]
